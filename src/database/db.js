@@ -1,15 +1,16 @@
-import { Sequelize } from "sequelize";
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 dotenv.config({ path: ".env" });
 
-export const sequelize = new Sequelize(
-  process.env.DB_NAME,
-  process.env.DB_USERNAME,
-  process.env.DB_PASSWORD,
+const connectDB = mongoose.connect(
+  process.env.URL,
   {
-    host: process.DB_HOST,
-    dialect: "mysql",
-    timezone: "-03:00",
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+
   }
-);
+  
+)
+
+export default connectDB

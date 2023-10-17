@@ -30,6 +30,7 @@ async function main() {
     app.listen(port, () => {
       console.log(`Servidor corriendo en el puerto ${port}`);
     });
+    actualizar();
   } catch (error) {
     console.error(error);
   }
