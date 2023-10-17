@@ -3,14 +3,17 @@ import dotenv from "dotenv";
 
 dotenv.config({ path: ".env" });
 
-const connectDB = mongoose.connect(
-  process.env.URL,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-
-  }
+export const connectDB = async () => {
   
-)
-
-export default connectDB
+  try {
+    await mongoose.connect(
+      process.env.MONGODB_URI,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      })
+    console.log('Conectado a la base de datos de MongoDb')
+  } catch (error) {
+    console.log('Error al conectar con la base de datos: ' + error);
+  }
+}

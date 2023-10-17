@@ -1,21 +1,21 @@
-import { Respuestas } from "../models/respuestas.js";
-import { sequelize } from "../database/db.js";
+import moment from "moment/moment.js";
+import dotenv from "dotenv";
+import { tablaDatos } from '../models/Estadisticas.js'
+
+dotenv.config({ path: ".env" });
 
 export const saveData = async (data) => {
-    try {
-        
-        const insertarValores = data.map(async (registro) => {
-            const  id  = registro.id;
-            const registroExistente = await Respuestas.findOne({ where: { id } });
-            if (registroExistente) {
-                await Respuestas.update(registro, { where: { id } });
-              } else {
-                await Respuestas.create(registro);
-              }
-        })
+    const fechaHoraActual  = moment()
+    const fechaHora = fechaHoraActual.parseZone(process.env.DATE_ZONE);
+    const fecha = fechaHora.format(process.env.DATE_FORMAT);
+    console.log(fecha);
 
-        await Promise.all(insertarValores);
+    try {
+        data.fecha = fecha;
+        await tablaDatos.create(data);
     } catch (error) {
-        console.error(error);
+        console.log("Ocurrio un error al guardar la base de datos");
     }
+
+    
 }
