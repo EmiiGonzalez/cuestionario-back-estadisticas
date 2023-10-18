@@ -25,6 +25,7 @@ const actualizar = async () => {
   
   } catch (error) {
     console.log("Ocurrio un error al actualizar la base de datos, se reintentara en 30 minutos");
+    console.log(error);
   } 
 };
 

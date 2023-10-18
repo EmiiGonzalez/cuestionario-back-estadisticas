@@ -1,3 +1,4 @@
+import { preguntas } from "./preguntas.js";
 export const tablaFrecuencias = (datos) => {
   const frecuencias = {};
   frecuencias.total = datos.total;
@@ -7,7 +8,7 @@ export const tablaFrecuencias = (datos) => {
       frecuencias[dato] = calcularEstadisticas(datos[dato], dato);
     }
   }
-  
+
   return frecuencias;
 };
 
@@ -21,23 +22,43 @@ const calcularEstadisticas = (array, nombreDato) => {
     return result;
   }, {});
 
-  // Calcular la frecuencia porcentual y el total de datos
+  //objeto final a retornar
+  const resultado = {};
   const totalDeDatos = array.length;
-  const frecuenciaPorcentual = {};
+  const frecuenciaPorcentual = [];
+  const datos = [];
+  const labels = [];
 
   for (const key in frecuenciaAbsoluta) {
-    const fAbsoluta = frecuenciaAbsoluta[key];
-    const fPorcentual = (fAbsoluta / totalDeDatos) * 100;
-    frecuenciaPorcentual[`fPorcentual_${key}`] = fPorcentual;
-  }
+    if (nombreDato != "edad") {
+      const fAbsoluta = frecuenciaAbsoluta[key];
+      const respuesta = preguntas[nombreDato][key];
+      const fPorcentual = Math.round((fAbsoluta / totalDeDatos) * 100);
+      datos.push(fAbsoluta);
+      labels.push(respuesta);
+      frecuenciaPorcentual.push(fPorcentual);
 
-  // Construir el objeto de resultados
-  const resultado = {
-    dato: nombreDato,
-    totalDeDatos,
-    ...frecuenciaAbsoluta,
-    ...frecuenciaPorcentual,
-  };
+      resultado.pregunta = nombreDato;
+      resultado.totalDeDatos = totalDeDatos;
+      resultado.fAbsoluta = datos;
+      resultado.labels = labels;
+      resultado.fPorcentual = frecuenciaPorcentual;
+    }
+    if (nombreDato == "edad") {
+      const fAbsoluta = frecuenciaAbsoluta[key];
+      const fPorcentual = Math.round((fAbsoluta / totalDeDatos) * 100);
+
+      datos.push(fAbsoluta);
+      labels.push(key);
+      frecuenciaPorcentual.push(fPorcentual);
+
+      resultado.pregunta = nombreDato;
+      resultado.totalDeDatos = totalDeDatos;
+      resultado.fAbsoluta = datos;
+      resultado.labels = labels;
+      resultado.fPorcentual = frecuenciaPorcentual;
+    }
+  }
 
   return resultado;
 };
