@@ -85,9 +85,10 @@ export const preguntas = {
   p12: {
     1: 'Celular',
     2: 'PC',
-    3: 'iPad',
-    4: 'NetBook del Estado',
-    5: 'Otra',
+    3: 'Notebook',
+    4: 'Ipad',
+    5: 'Netbook del estado',
+    6: 'Otra',
   },
   p13: {
     1: 'Lee los términos y condiciones',
