@@ -17,6 +17,7 @@ export const actualizar = async () => {
       await saveData(frecuencias);
       console.log("Se actualizo la base de datos");
     } catch (error) {
-      console.log(`Ocurrio un error al actualizar la base de datos, se reintentara en ${minutos} minutos`);
+      console.log(`Ocurrio un error al actualizar la base de datos, se reintentara en ${minutos} minutos`)
+      console.log(error);;
     } 
   };

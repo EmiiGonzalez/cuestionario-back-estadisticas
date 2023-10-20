@@ -2,9 +2,12 @@ import { validarValue, valMultiple } from "../services/validarValues.js";
 
 export const getFrecuencias = (datos) => {
   const frecuencias = {
-    total : 0,
+    total: 0,
     sexo: [],
-    edad: [],
+    "edad_14-25": [],
+    "edad_26-40": [],
+    "edad_41-55": [],
+    "edad_56-99": [],
     p1: [],
     p2: [],
     p3: [],
@@ -28,6 +31,7 @@ export const getFrecuencias = (datos) => {
     "p3",
     "p11",
     "edad",
+    "p17",
     "p17_o",
     "p4_o",
     "p5_o",
@@ -55,15 +59,36 @@ export const getFrecuencias = (datos) => {
           }
         }
       }
-      //para la edad o el valor de escala de 1 a 10
-      if (campo == "edad" || campo == "p3") {
+
+      
+      //para la edad
+      if (campo == "edad" ) {
         //la edad no es necesario validarla
-        if (campo == "edad") {
-          frecuencias.edad.push(value);
-        } else if (validarValue(value, campo)) {
+        const valorEntero = Number(value);
+        if (valorEntero >= 14 && valorEntero <= 25) {
+          frecuencias["edad_14-25"].push(value);
+        }
+        if (valorEntero >= 26 && valorEntero <= 40) {
+          frecuencias["edad_26-40"].push(value);
+        }
+        if (valorEntero >= 41 && valorEntero <= 55) {
+          frecuencias["edad_41-55"].push(value);
+        }
+        if (valorEntero >= 56 && valorEntero <= 99) {
+          frecuencias["edad_56-99"].push(value);
+        }
+         
+      }
+
+
+      // para el valor de escala de 1 a 10 o p3
+       if (campo == "p3") {
+        if (validarValue(value, campo)) {
           frecuencias[campo].push(value);
         }
-      }
+       }
+
+
       //para la p11 que es la primer y segunda red social mas usada
       if (campo == "p11" && value.length > 1) {
         const arrayData = value.split("");
