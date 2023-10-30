@@ -8,9 +8,9 @@ export const preguntas = {
     2: "Recién tomo conocimiento",
   },
   p2: {
-    1: "Nunca Tiene en cuenta si el sitio es seguro o no",
-    2: "A veces tiene en cuenta si el sitio es seguro o no",
-    3: "Siempre Tengo en cuenta si el Sitio es Seguro o No",
+    1: "Nunca lo tengo en cuenta",
+    2: "A veces lo tengo en cuenta",
+    3: "Siempre lo tengo en cuenta",
   },
   p3: {
     1: "nada importante",
@@ -25,33 +25,33 @@ export const preguntas = {
     10: "totalmente importante",
   },
   p4: {
-    1: 'Utiliza siempre la misma contraseña para todas las aplicaciones y/o accesos',
-    2: 'Utiliza siempre distintas contraseñas para los accesos y aplicaciones',
+    1: 'Uso las mismas cotraseñas en todo',
+    2: 'Uso diferentes cotraseñas en distintas apps',
     3: 'Otras'
   },
   p5: {
-    1: 'Que sea Facil de recordar sin tener en cuenta la seguridad ',
-    2: 'Que sea compleja teniendo en cuenta la Seguridad ',
+    1: 'Que sea Facil de recordar',
+    2: 'Que sea compleja ',
     3: 'Que la genere una aplicación',
     4: 'Otras'
   },
   p6: {
-    1: 'En forma Digital (incluye gestores, archivos, mensajes en redes sociales)',
-    2: 'Fisica (en papel)',
+    1: 'En forma Digital',
+    2: 'Fisica',
     3: 'Las recuerdo todas de memoria',
     4: 'Uso Siempre la misma para todo',
     5: 'Otras'
   },
   p7: {
-    1: 'Teléfonos (recepción de código por sms, código por wpp, códigos por email)',
-    2: 'Huella digital - Biometrico',
+    1: 'Factores de autenticacion',
+    2: 'Huella digital',
     3: 'Reconocimiento Facial',
     4: 'Otras'
   },
   p8: {
-    1: 'Siempre utilizo Dispositivos que sean de mi propiedad',
-    2: 'A veces utilizo Dispositivos Ajenos',
-    3: 'Siempre utilizo dispositivos que no son de mi propiedad'
+    1: 'Solo dispositivos de mi propiedad',
+    2: 'A veces utilizo dispositivos ajenos',
+    3: 'Siempre utilizo dispositivos ajenos',
   },
   p9: {
     1: 'Prepago',
@@ -91,9 +91,9 @@ export const preguntas = {
     6: 'Otra',
   },
   p13: {
-    1: 'Lee los términos y condiciones',
-    2: 'NO lee los términos y condiciones',
-    3: 'No sabe de la existencia de Terminos y Condiciones'
+    1: 'Si los leo',
+    2: 'No los leo',
+    3: 'No se de su existencia'
   },
   p14: {
     1: 'Busca usar programas con licencia abierta',

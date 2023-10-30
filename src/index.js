@@ -13,9 +13,10 @@ async function main() {
     });
     actualizar();
 
-    setTimeout( () => {
-      actualizar();
-    } , minutos * 60 * 1000);
+    const inteveal = setInterval(() => {
+        actualizar();
+        return () => clearInterval(inteveal);
+    },minutos * 60 * 1000)
 
   } catch (error) {
     console.error(error.message);
